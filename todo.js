@@ -13,6 +13,9 @@ var ListItem = React.createClass({
 
   },
 
+  handleAddTask: function(){
+    console.log('submitted')
+  },
 
   render: function(){
     return(
@@ -22,7 +25,10 @@ var ListItem = React.createClass({
           placeholder="Learn React..."
           onChange = {this.handleTaskChange}
         />
-        <input type="submit"/>
+        <input
+          type="submit"
+          onClick={this.handleAddTask}
+        />
         <h1>{this.state.task}</h1>
       </div>
     );
