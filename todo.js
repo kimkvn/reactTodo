@@ -6,16 +6,13 @@ var ListItem = React.createClass({
     }
   },
 
-  handleTaskChange: function(text){
+  handleTaskChange: function(event){
     this.setState({
-      task: text.target.value
+      task: event.target.value
     });
 
   },
 
-  handleTextCopy: function(){
-
-  },
 
   render: function(){
     return(
@@ -23,14 +20,10 @@ var ListItem = React.createClass({
         <input
           type="text"
           placeholder="Learn React..."
-          value={this.state.task}
           onChange = {this.handleTaskChange}
         />
         <input type="submit"/>
-        <textarea
-          value="Duplicates go here"
-          onChange={this.handleTextCopy}
-        />
+        <h1>{this.state.task}</h1>
       </div>
     );
   }
