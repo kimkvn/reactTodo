@@ -1,10 +1,28 @@
 
+var AddedTask = React.createClass({
+  getInitialState: function(){
+    return{
+      new: ''
+    }
+  },
+
+  render: function(){
+    return(
+      <div>
+        <br />
+        <h3>Some cool shit</h3>
+      </div>
+    )
+  }
+});
+
 var ListItem = React.createClass({
   getInitialState: function(){
     return{
       task: ''
     }
   },
+
 
   handleTaskChange: function(event){
     this.setState({
@@ -14,7 +32,8 @@ var ListItem = React.createClass({
   },
 
   handleAddTask: function(){
-    console.log('submitted')
+
+
   },
 
   render: function(){
@@ -27,9 +46,11 @@ var ListItem = React.createClass({
         />
         <input
           type="submit"
+          value="Add To List"
           onClick={this.handleAddTask}
         />
         <h1>{this.state.task}</h1>
+        <AddedTask />
       </div>
     );
   }
