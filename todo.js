@@ -1,11 +1,4 @@
 
-var data = [
-  {
-    taskDescrip: "",
-  }
-];
-
-
 var AddedTask = React.createClass({
 
   getInitialState: function(){
@@ -41,7 +34,11 @@ var ListItem = React.createClass({
   },
 
   handleOnSubmit: function(event){
-    alert('penis')
+    event.preventDefault();
+    alert(this.state.task)
+    //push-add-bind the current text into its own div
+    //"append" the new div/li to the ListItem
+    //clear the text/task item "cache"
   },
 
   render: function(){
@@ -55,10 +52,14 @@ var ListItem = React.createClass({
             onChange = {this.handleTaskChange}
           />
           <button>Add Task</button>
-          <h1>{this.state.task}</h1>
 
           <AddedTask />
         </form>
+        <ul>
+        <li>
+          {this.state.task}
+        </li>
+        </ul>
       </div>
     );
   }
