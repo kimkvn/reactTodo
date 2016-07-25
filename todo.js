@@ -1,4 +1,11 @@
 
+var data = [
+  {
+    taskDescrip: "",
+  }
+];
+
+
 var AddedTask = React.createClass({
   getInitialState: function(){
     return{
@@ -23,7 +30,6 @@ var ListItem = React.createClass({
     }
   },
 
-
   handleTaskChange: function(event){
     this.setState({
       task: event.target.value
@@ -31,15 +37,11 @@ var ListItem = React.createClass({
 
   },
 
-  handleAddTask: function(){
-
-
-  },
-
   render: function(){
     return(
       <div>
         <input
+          className="taskCreate"
           type="text"
           placeholder="Learn React..."
           onChange = {this.handleTaskChange}
@@ -47,10 +49,12 @@ var ListItem = React.createClass({
         <input
           type="submit"
           value="Add To List"
-          onClick={this.handleAddTask}
+          onClick={"hi"}
         />
         <h1>{this.state.task}</h1>
+
         <AddedTask />
+
       </div>
     );
   }
