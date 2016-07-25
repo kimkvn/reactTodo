@@ -1,28 +1,23 @@
 
-var AddedTask = React.createClass({
-
-  getInitialState: function(){
-    return{
-      new: ''
-    }
-  },
+var AddNewTask = React.createClass({
 
   render: function(){
+    var createTask = function(item){
+      return <li>{item.text}</li>
+    }
     return(
-      <div>
-        <br />
-        <h3>Some cool shit</h3>
-      </div>
-    )
+      <ul></ul>
+    );
   }
+
 });
 
-var ListItem = React.createClass({
+var TaskList = React.createClass({
 
 
   getInitialState: function(){
     return{
-      task: ''
+      task: [],
     }
   },
 
@@ -35,10 +30,14 @@ var ListItem = React.createClass({
 
   handleOnSubmit: function(event){
     event.preventDefault();
-    alert(this.state.task)
+
     //push-add-bind the current text into its own div
+
     //"append" the new div/li to the ListItem
     //clear the text/task item "cache"
+    this.setState({
+      task: ''
+    });
   },
 
   render: function(){
@@ -52,13 +51,9 @@ var ListItem = React.createClass({
             onChange = {this.handleTaskChange}
           />
           <button>Add Task</button>
-
-          <AddedTask />
         </form>
         <ul>
-        <li>
-          {this.state.task}
-        </li>
+          <AddNewTask addedTask = {this.state.task}/>
         </ul>
       </div>
     );
@@ -66,6 +61,6 @@ var ListItem = React.createClass({
 });
 
 ReactDOM.render(
-  <ListItem />,
+  <TaskList />,
   document.getElementById('content')
 );
