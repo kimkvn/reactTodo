@@ -6,7 +6,7 @@ var AddNewTask = React.createClass({
       return <li>{item.text}</li>
     }
     return(
-      <ul></ul>
+      <ul>{this.props.addedTask.map(createTask)}</ul>
     );
   }
 
@@ -18,12 +18,13 @@ var TaskList = React.createClass({
   getInitialState: function(){
     return{
       task: [],
+      text: ''
     }
   },
 
   handleTaskChange: function(event){
     this.setState({
-      task: event.target.value
+      text: event.target.value
     });
 
   },
@@ -31,12 +32,12 @@ var TaskList = React.createClass({
   handleOnSubmit: function(event){
     event.preventDefault();
 
-    //push-add-bind the current text into its own div
+    var nextTask = this.state.task.concat([{text:this.state.text}])
 
-    //"append" the new div/li to the ListItem
-    //clear the text/task item "cache"
+
     this.setState({
-      task: ''
+      task: nextTask,
+      text: ''
     });
   },
 
@@ -48,13 +49,13 @@ var TaskList = React.createClass({
             className="taskCreate"
             type="text"
             placeholder="Learn React..."
+            value = {this.state.text}
             onChange = {this.handleTaskChange}
           />
           <button>Add Task</button>
         </form>
-        <ul>
-          <AddNewTask addedTask = {this.state.task}/>
-        </ul>
+        <AddNewTask addedTask = {this.state.task}/>
+
       </div>
     );
   }
