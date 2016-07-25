@@ -7,6 +7,7 @@ var data = [
 
 
 var AddedTask = React.createClass({
+
   getInitialState: function(){
     return{
       new: ''
@@ -24,6 +25,8 @@ var AddedTask = React.createClass({
 });
 
 var ListItem = React.createClass({
+
+
   getInitialState: function(){
     return{
       task: ''
@@ -37,24 +40,25 @@ var ListItem = React.createClass({
 
   },
 
+  handleOnSubmit: function(event){
+    alert('penis')
+  },
+
   render: function(){
     return(
       <div>
-        <input
-          className="taskCreate"
-          type="text"
-          placeholder="Learn React..."
-          onChange = {this.handleTaskChange}
-        />
-        <input
-          type="submit"
-          value="Add To List"
-          onClick={"hi"}
-        />
-        <h1>{this.state.task}</h1>
+        <form onSubmit={this.handleOnSubmit}>
+          <input
+            className="taskCreate"
+            type="text"
+            placeholder="Learn React..."
+            onChange = {this.handleTaskChange}
+          />
+          <button>Add Task</button>
+          <h1>{this.state.task}</h1>
 
-        <AddedTask />
-
+          <AddedTask />
+        </form>
       </div>
     );
   }
