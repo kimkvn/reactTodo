@@ -4,7 +4,7 @@ var AddNewTask = React.createClass({
   render: function(){
     var createTask = function(item){
       return(
-        <li>
+        <li key={item.id}>
           <input type="checkbox"/>
           {item.text}
         </li>
@@ -37,7 +37,7 @@ var TaskList = React.createClass({
   handleOnSubmit: function(event){
     event.preventDefault();
 
-    var nextTask = this.state.task.concat([ {text:this.state.text} ])
+    var nextTask = this.state.task.concat([ {text:this.state.text, id:this.state.task.length + 1} ])
 
     this.setState({
       task: nextTask,
