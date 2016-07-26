@@ -1,28 +1,34 @@
 
 var AddNewTask = React.createClass({
 
+  getInitialState: function(){
+    return{
+      complete: false
+    }
+  },
+
+  taskClick: function(){
+    console.log('success')
+  },
 
 
   render: function(){
     var createTask = function(item){
-      var onChecked= function(){
-        console.log("checked!")
-      };
       return(
-        <li key={item.id}>
-          <input
-          className="listItem"
-          type="checkbox"
 
-          />
-          //conditional ternary expressions can only exist nested in tags?
-          { (4<5) ? console.log("yes") : console.log("no")}
-          {item.text}
-        </li>
+          <div key={item.id}
+            onClick = {this.props}
+          >
+            { (4<5) ? console.log("yes") : console.log("no")}
+            {item.text}
+          </div>
+
       )
     }
     return(
-      <ul>{this.props.addedTask.map(createTask)}</ul>
+      <section>
+        {this.props.addedTask.map(createTask)}
+      </section>
     );
   }
 });
@@ -49,6 +55,10 @@ var TaskList = React.createClass({
       task: nextTask,
       text: ''
     });
+  },
+
+  taskClick: function(){
+    console.log('success')
   },
 
   render: function(){
