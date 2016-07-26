@@ -59,7 +59,7 @@ var TaskList = React.createClass({
           <button>Add Task</button>
         </form>
         <AddNewTask addedTask = {this.state.task}/>
-
+        <span>{this.state.task.length}</span>
       </div>
     );
   }
