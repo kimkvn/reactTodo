@@ -48,7 +48,9 @@ var TaskList = React.createClass({
   render: function(){
     return(
       <div>
-        <form onSubmit={this.handleOnSubmit}>
+        <form
+          className = "ctr"
+          onSubmit={this.handleOnSubmit}>
           <input
             className="taskCreate"
             type="text"
@@ -56,10 +58,10 @@ var TaskList = React.createClass({
             value = {this.state.text}
             onChange = {this.handleTaskChange}
           />
-          <button>Add Task</button>
+          <button className="">Add Task</button>
         </form>
         <AddNewTask addedTask = {this.state.task}/>
-        <span>{this.state.task.length}</span>
+        <span>{this.state.task.length} Items</span>
       </div>
     );
   }
