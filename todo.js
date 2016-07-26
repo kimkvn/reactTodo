@@ -1,11 +1,22 @@
 
 var AddNewTask = React.createClass({
 
+
+
   render: function(){
     var createTask = function(item){
+      var onChecked= function(){
+        console.log("checked!")
+      };
       return(
         <li key={item.id}>
-          <input type="checkbox"/>
+          <input
+          className="listItem"
+          type="checkbox"
+
+          />
+          //conditional ternary expressions can only exist nested in tags?
+          { (4<5) ? console.log("yes") : console.log("no")}
           {item.text}
         </li>
       )
@@ -14,11 +25,9 @@ var AddNewTask = React.createClass({
       <ul>{this.props.addedTask.map(createTask)}</ul>
     );
   }
-
 });
 
 var TaskList = React.createClass({
-
 
   getInitialState: function(){
     return{
@@ -31,14 +40,11 @@ var TaskList = React.createClass({
     this.setState({
       text: event.target.value
     });
-
   },
 
   handleOnSubmit: function(event){
     event.preventDefault();
-
     var nextTask = this.state.task.concat([ {text:this.state.text, id:this.state.task.length + 1} ])
-
     this.setState({
       task: nextTask,
       text: ''
@@ -49,7 +55,7 @@ var TaskList = React.createClass({
     return(
       <div>
         <form
-          className = "ctr"
+        className="text-center"
           onSubmit={this.handleOnSubmit}>
           <input
             className="taskCreate"
