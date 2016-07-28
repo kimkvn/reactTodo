@@ -1,0 +1,12 @@
+.contentWrapper {
+  padding: 10ex 3em; }
+  .contentWrapper form input {
+    margin-right: 1em; }
+
+.taskCountWrapper {
+  padding-top: 2ex; }
+
+.taskCount {
+  color: gray; }
+
+/*# sourceMappingURL=styles.css.map */
