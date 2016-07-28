@@ -17,7 +17,7 @@ var AddNewTask = React.createClass({
       return(
 
           <div key={item.id}
-            onClick = {this.props}
+            onClick = {this.taskClick.bind(this)}
           >
             { (4<5) ? console.log("yes") : console.log("no")}
             {item.text}
