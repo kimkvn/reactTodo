@@ -1,3 +1,19 @@
-body{
-  background: blue;
+
+.contentWrapper{
+  padding: 10ex 3em;
+
+  form{
+    input{
+      margin-right: 1em;
+    }
+  }
+
+}
+
+
+.taskCountWrapper{
+  padding-top: 2ex;
+}
+.taskCount{
+  color: gray;
 }

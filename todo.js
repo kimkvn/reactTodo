@@ -16,9 +16,7 @@ var AddNewTask = React.createClass({
     var createTask = function(item){
       return(
 
-          <div key={item.id}
-            onClick = {this.taskClick.bind(this)}
-          >
+          <div key={item.id}>
             { (4<5) ? console.log("yes") : console.log("no")}
             {item.text}
           </div>
@@ -77,7 +75,9 @@ var TaskList = React.createClass({
           <button className="">Add Task</button>
         </form>
         <AddNewTask addedTask = {this.state.task}/>
-        <span>{this.state.task.length} Items</span>
+        <div className="taskCountWrapper">
+          <span className="taskCount">{this.state.task.length} Items Remain</span>
+        </div>
       </div>
     );
   }
